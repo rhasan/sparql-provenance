@@ -1,0 +1,22 @@
+@prefix : <http://ex.org/> .
+
+:ProfA :dept :CS.
+:ProfA :name "Prof. A".
+:ProfA :email "a@email.edu".
+:ProfA :course :CS101.
+:ProfA :course :CS103.
+:ProfA :course :CS201.
+:ProfA :course :CS204.
+
+:ProfB :dept :MATH.
+:ProfB :name "Prof. B".
+:ProfB :email "b@email.edu".
+:ProfB :course :MATH101.
+:ProfB :course :MATH201.
+
+:CS101 :courseType :underGrad.
+:CS103 :courseType :underGrad.
+:MATH101 :courseType :underGrad.
+:CS201 :courseType :grad.
+:CS204 :courseType :grad.
+:MATH201 :courseType :grad.

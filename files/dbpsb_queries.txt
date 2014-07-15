@@ -1,0 +1,566 @@
+Query 1
+Raw:
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> SELECT DISTINCT ?var1 WHERE { <http://dbpedia.org/resource/Pat_Kerwick> rdf:type ?var1 . }
+
+Pretty:
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
+SELECT DISTINCT ?var1 WHERE { 
+	<http://dbpedia.org/resource/Pat_Kerwick> rdf:type ?var1 . 
+}
+
+Result: ( ?var1 = <http://dbpedia.org/ontology/GaelicGamesPlayer> )
+derivation:
+http://dbpedia.org/resource/Pat_Kerwick @rdf:type http://dbpedia.org/ontology/GaelicGamesPlayer
+Result: ( ?var1 = <http://dbpedia.org/ontology/Person> )
+derivation:
+http://dbpedia.org/resource/Pat_Kerwick @rdf:type http://dbpedia.org/ontology/Person
+Result: ( ?var1 = owl:Thing )
+derivation:
+http://dbpedia.org/resource/Pat_Kerwick @rdf:type owl:Thing
+Result: ( ?var1 = <http://dbpedia.org/ontology/Athlete> )
+derivation:
+http://dbpedia.org/resource/Pat_Kerwick @rdf:type http://dbpedia.org/ontology/Athlete
+
+
+Query 2
+Raw:
+PREFIX dbpprop: <http://dbpedia.org/property/> PREFIX owl: <http://www.w3.org/2002/07/owl#> PREFIX xsd: <http://www.w3.org/2001/XMLSchema#> PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> PREFIX foaf: <http://xmlns.com/foaf/0.1/> PREFIX dc: <http://purl.org/dc/elements/1.1/> PREFIX : <http://dbpedia.org/resource/> PREFIX dbpedia2: <http://dbpedia.org/property/> PREFIX dbpedia: <http://dbpedia.org/> PREFIX skos: <http://www.w3.org/2004/02/skos/core#> SELECT * WHERE { <http://dbpedia.org/resource/Phylum_Chlorophyta> ?var2 ?var1. filter(?var2 = dbpedia2:redirect || ?var2 = dbpprop:redirect) }
+
+Pretty:
+PREFIX dbpprop: <http://dbpedia.org/property/> 
+PREFIX owl: <http://www.w3.org/2002/07/owl#> 
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#> 
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> 
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
+PREFIX foaf: <http://xmlns.com/foaf/0.1/> 
+PREFIX dc: <http://purl.org/dc/elements/1.1/> 
+PREFIX : <http://dbpedia.org/resource/> 
+PREFIX dbpedia2: <http://dbpedia.org/property/> 
+PREFIX dbpedia: <http://dbpedia.org/> 
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#> 
+SELECT * WHERE { 
+	<http://dbpedia.org/resource/Phylum_Chlorophyta> ?var2 ?var1. 
+	filter(?var2 = dbpedia2:redirect || ?var2 = dbpprop:redirect) 
+}
+no result and no provenance
+
+
+Query 3
+PREFIX dc: <http://purl.org/dc/elements/1.1/> 
+PREFIX foaf: <http://xmlns.com/foaf/0.1/> 
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#> 
+PREFIX space: <http://purl.org/net/schemas/space/> 
+PREFIX dbpedia-owl: <http://dbpedia.org/ontology/> 
+PREFIX dbpedia-prop: <http://dbpedia.org/property/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>  
+
+
+SELECT ?var4 ?var8 ?var10 WHERE { 
+		?var5 dbpedia-owl:thumbnail ?var4 . 
+		?var5 rdf:type dbpedia-owl:Person . 
+		?var5 rdfs:label "Paolo Boselli"@en . 
+		?var5 foaf:page ?var8 . 
+		OPTIONAL { ?var5 foaf:homepage ?var10 .} . 
+	}
+
+Result: ( ?var8 = <http://en.wikipedia.org/wiki/Paolo_Boselli> ) ( ?var4 = <http://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Paolo_Boselli.jpg/200px-Paolo_Boselli.jpg> )
+derivation:
+http://dbpedia.org/resource/Paolo_Boselli @http://dbpedia.org/ontology/thumbnail http://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Paolo_Boselli.jpg/200px-Paolo_Boselli.jpg , 
+http://dbpedia.org/resource/Paolo_Boselli @rdf:type http://dbpedia.org/ontology/Person , 
+http://dbpedia.org/resource/Paolo_Boselli @rdfs:label "Paolo Boselli"@en , 
+http://dbpedia.org/resource/Paolo_Boselli @http://xmlns.com/foaf/0.1/page http://en.wikipedia.org/wiki/Paolo_Boselli
+
+
+Query 4
+Raw:
+PREFIX dc: <http://purl.org/dc/elements/1.1/> PREFIX : <http://dbpedia.org/resource/> PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> PREFIX dbpedia2: <http://dbpedia.org/property/> PREFIX foaf: <http://xmlns.com/foaf/0.1/> PREFIX dbo: <http://dbpedia.org/ontology/> PREFIX owl: <http://www.w3.org/2002/07/owl#> PREFIX xsd: <http://www.w3.org/2001/XMLSchema#> PREFIX dbpedia: <http://dbpedia.org/> PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> PREFIX skos: <http://www.w3.org/2004/02/skos/core#> SELECT ?var5 ?var6 ?var9 ?var8 ?var4 WHERE { { <http://dbpedia.org/resource/In_Position_EP> ?var5 ?var6 . ?var6 foaf:name ?var8 . } UNION { ?var9 ?var5 <http://dbpedia.org/resource/In_Position_EP> ; foaf:name ?var4 . } }
+
+Pretty:
+PREFIX dc: <http://purl.org/dc/elements/1.1/> 
+PREFIX : <http://dbpedia.org/resource/> 
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> 
+PREFIX dbpedia2: <http://dbpedia.org/property/> 
+PREFIX foaf: <http://xmlns.com/foaf/0.1/> 
+PREFIX dbo: <http://dbpedia.org/ontology/> 
+PREFIX owl: <http://www.w3.org/2002/07/owl#> 
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#> 
+PREFIX dbpedia: <http://dbpedia.org/> 
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#> 
+SELECT ?var5 ?var6 ?var9 ?var8 ?var4 WHERE { 
+	{ 
+		<http://dbpedia.org/resource/In_Position_EP> ?var5 ?var6 . 
+		?var6 foaf:name ?var8 . 
+	}
+	 UNION 
+	{ 
+		?var9 ?var5 <http://dbpedia.org/resource/In_Position_EP>. 
+		?var9 foaf:name ?var4 . } 
+	}
+
+
+Query 5
+Raw:
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> PREFIX dbpp: <http://dbpedia.org/property/> PREFIX foaf: <http://xmlns.com/foaf/0.1/> PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> SELECT DISTINCT ?var3 ?var4 ?var5 WHERE { { ?var3 dbpp:series 1 ; foaf:name ?var4 ; rdfs:comment ?var5 ; rdf:type <http://www.w3.org/2002/07/owl#Thing> . } UNION { ?var3 dbpp:series ?var8 . ?var8 dbpp:redirect 1 . ?var3 foaf:name ?var4 ; rdfs:comment ?var5 ; rdf:type <http://www.w3.org/2002/07/owl#Thing> . } }
+
+Pretty:
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> PREFIX dbpp: <http://dbpedia.org/property/> PREFIX foaf: <http://xmlns.com/foaf/0.1/> PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
+
+SELECT DISTINCT ?var3 ?var4 ?var5 WHERE { 
+	{ 
+		?var3 dbpp:series 1 ; 
+			foaf:name ?var4 ; 
+			rdfs:comment ?var5 ; 
+			rdf:type <http://www.w3.org/2002/07/owl#Thing> . 
+	} 
+	UNION 
+	{ 
+		?var3 dbpp:series ?var8 . 
+		?var8 dbpp:redirect 1 . 
+		?var3 foaf:name ?var4 ; 
+			rdfs:comment ?var5 ; 
+			rdf:type <http://www.w3.org/2002/07/owl#Thing> . 
+	} 
+}
+
+
+Query 6
+Raw:
+PREFIX owl: <http://www.w3.org/2002/07/owl#> PREFIX xsd: <http://www.w3.org/2001/XMLSchema#> PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> PREFIX foaf: <http://xmlns.com/foaf/0.1/> PREFIX dc: <http://purl.org/dc/elements/1.1/> PREFIX : <http://dbpedia.org/resource/> PREFIX dbpedia2: <http://dbpedia.org/property/> PREFIX dbpedia: <http://dbpedia.org/> PREFIX skos: <http://www.w3.org/2004/02/skos/core#> SELECT DISTINCT ?var3 ?var5 ?var7 WHERE { ?var3 rdf:type <http://dbpedia.org/class/yago/Company108058098> . ?var3 dbpedia2:numEmployees ?var5 FILTER ( xsd:integer(?var5) >= 0 ) . ?var3 foaf:homepage ?var7 . }
+
+Pretty:
+PREFIX owl: <http://www.w3.org/2002/07/owl#> 
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#> 
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> 
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
+PREFIX foaf: <http://xmlns.com/foaf/0.1/> 
+PREFIX dc: <http://purl.org/dc/elements/1.1/> 
+PREFIX : <http://dbpedia.org/resource/> 
+PREFIX dbpedia2: <http://dbpedia.org/property/> 
+PREFIX dbpedia: <http://dbpedia.org/> 
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#> 
+
+SELECT DISTINCT ?var3 ?var5 ?var7 WHERE { 
+	?var3 rdf:type <http://dbpedia.org/class/yago/Company108058098> . 
+	?var3 dbpedia2:numEmployees ?var5 
+	FILTER ( xsd:integer(?var5) >= 0 ) . 
+	?var3 foaf:homepage ?var7 . 
+}
+
+
+Query 7:
+Raw:
+PREFIX owl: <http://www.w3.org/2002/07/owl#> PREFIX xsd: <http://www.w3.org/2001/XMLSchema#> PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> PREFIX foaf: <http://xmlns.com/foaf/0.1/> PREFIX dc: <http://purl.org/dc/elements/1.1/> PREFIX : <http://dbpedia.org/resource/> PREFIX dbpedia2: <http://dbpedia.org/property/> PREFIX dbpedia: <http://dbpedia.org/> PREFIX skos: <http://www.w3.org/2004/02/skos/core#> PREFIX umbelBus: <http://umbel.org/umbel/sc/Business> PREFIX umbelCountry: <http://umbel.org/umbel/sc/IndependentCountry> SELECT distinct ?var0 ?var1 ?var2 ?var3 ?var5 ?var6 ?var7 ?var10 WHERE { ?var0 rdfs:comment ?var1. ?var0 foaf:page <http://en.wikipedia.org/wiki/Polish%E2%80%93Ukrainian_Peace_Force_Battalion> OPTIONAL{?var0 skos:subject ?var6} OPTIONAL{?var0 dbpedia2:industry ?var5}OPTIONAL{?var0 dbpedia2:location ?var2}OPTIONAL{?var0 dbpedia2:locationCountry ?var3}OPTIONAL{?var0 dbpedia2:locationCity ?var9; dbpedia2:manufacturer ?var0}OPTIONAL{?var0 dbpedia2:products ?var11; dbpedia2:model ?var0}OPTIONAL{?var0 <http://www.georss.org/georss/point> ?var10}OPTIONAL{?var0 rdf:type ?var7}}
+
+Pretty:
+PREFIX  dc:   <http://purl.org/dc/elements/1.1/>
+PREFIX  :     <http://dbpedia.org/resource/>
+PREFIX  dbpedia2: <http://dbpedia.org/property/>
+PREFIX  foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX  rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX  owl:  <http://www.w3.org/2002/07/owl#>
+PREFIX  xsd:  <http://www.w3.org/2001/XMLSchema#>
+PREFIX  dbpedia: <http://dbpedia.org/>
+PREFIX  rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX  umbelCountry: <http://umbel.org/umbel/sc/IndependentCountry>
+PREFIX  skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX  umbelBus: <http://umbel.org/umbel/sc/Business>
+
+SELECT DISTINCT  ?var0 ?var1 ?var2 ?var3 ?var5 ?var6 ?var7 ?var10
+WHERE
+  { ?var0 rdfs:comment ?var1 .
+    ?var0 foaf:page <http://en.wikipedia.org/wiki/Polish%E2%80%93Ukrainian_Peace_Force_Battalion>
+    OPTIONAL
+      { ?var0 skos:subject ?var6 }
+    OPTIONAL
+      { ?var0 dbpedia2:industry ?var5 }
+    OPTIONAL
+      { ?var0 dbpedia2:location ?var2 }
+    OPTIONAL
+      { ?var0 dbpedia2:locationCountry ?var3 }
+    OPTIONAL
+      { ?var0 dbpedia2:locationCity ?var9 .
+        ?var0 dbpedia2:manufacturer ?var0
+      }
+    OPTIONAL
+      { ?var0 dbpedia2:products ?var11 .
+        ?var0 dbpedia2:model ?var0
+      }
+    OPTIONAL
+      { ?var0 <http://www.georss.org/georss/point> ?var10 }
+    OPTIONAL
+      { ?var0 rdf:type ?var7 }
+  }
+  
+  
+Query 8:
+Raw:
+  PREFIX owl: <http://www.w3.org/2002/07/owl#> PREFIX xsd: <http://www.w3.org/2001/XMLSchema#> PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> PREFIX foaf: <http://xmlns.com/foaf/0.1/> PREFIX dc: <http://purl.org/dc/elements/1.1/> PREFIX : <http://dbpedia.org/resource/> PREFIX dbpedia2: <http://dbpedia.org/property/> PREFIX dbpedia: <http://dbpedia.org/> PREFIX skos: <http://www.w3.org/2004/02/skos/core#> SELECT ?var2 ?var4 WHERE { { ?var2 rdf:type <http://www.w3.org/2002/07/owl#Thing>. ?var2 dbpedia2:population ?var4. FILTER (xsd:integer(?var4) > -1000) } UNION { ?var2 rdf:type <http://www.w3.org/2002/07/owl#Thing>. ?var2 dbpedia2:populationUrban ?var4. FILTER (xsd:integer(?var4) > -1000) } }
+
+Pretty:
+PREFIX  dc:   <http://purl.org/dc/elements/1.1/>
+PREFIX  :     <http://dbpedia.org/resource/>
+PREFIX  rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX  dbpedia2: <http://dbpedia.org/property/>
+PREFIX  foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX  owl:  <http://www.w3.org/2002/07/owl#>
+PREFIX  xsd:  <http://www.w3.org/2001/XMLSchema#>
+PREFIX  dbpedia: <http://dbpedia.org/>
+PREFIX  rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX  skos: <http://www.w3.org/2004/02/skos/core#>
+
+SELECT  ?var2 ?var4
+WHERE
+  {   { ?var2 rdf:type owl:Thing .
+        ?var2 dbpedia2:population ?var4
+        FILTER ( xsd:integer(?var4) > -1000 )
+      }
+    UNION
+      { ?var2 rdf:type owl:Thing .
+        ?var2 dbpedia2:populationUrban ?var4
+        FILTER ( xsd:integer(?var4) > -1000 )
+      }
+  }
+  
+  
+Query 9:
+Raw:
+PREFIX foaf: <http://xmlns.com/foaf/0.1/> PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> SELECT * WHERE { ?var2 a <http://dbpedia.org/ontology/Settlement>; rdfs:label \"Mexico City\"@en . ?var6 a <http://dbpedia.org/ontology/Airport>. {?var6 <http://dbpedia.org/ontology/city> ?var2} UNION {?var6 <http://dbpedia.org/ontology/location> ?var2} {?var6 <http://dbpedia.org/property/iata> ?var5.} UNION {?var6 <http://dbpedia.org/ontology/iataLocationIdentifier> ?var5. } OPTIONAL { ?var6 foaf:homepage ?var6_home. } OPTIONAL { ?var6 <http://dbpedia.org/property/nativename> ?var6_name.} }
+
+Pretty:
+PREFIX  rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX  foaf: <http://xmlns.com/foaf/0.1/>
+
+SELECT  *
+WHERE
+  { ?var2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Settlement> .
+    ?var2 rdfs:label "Mexico City"@en .
+    ?var6 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Airport>
+      { ?var6 <http://dbpedia.org/ontology/city> ?var2 }
+    UNION
+      { ?var6 <http://dbpedia.org/ontology/location> ?var2 }
+      { ?var6 <http://dbpedia.org/property/iata> ?var5 }
+    UNION
+      { ?var6 <http://dbpedia.org/ontology/iataLocationIdentifier> ?var5 }
+    OPTIONAL
+      { ?var6 foaf:homepage ?var6_home }
+    OPTIONAL
+      { ?var6 <http://dbpedia.org/property/nativename> ?var6_name }
+  }
+  
+Query 10:
+Raw:
+PREFIX owl: <http://www.w3.org/2002/07/owl#> PREFIX xsd: <http://www.w3.org/2001/XMLSchema#> PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> PREFIX foaf: <http://xmlns.com/foaf/0.1/> PREFIX dc: <http://purl.org/dc/elements/1.1/> PREFIX : <http://dbpedia.org/resource/> PREFIX dbpedia2: <http://dbpedia.org/property/> PREFIX dbpedia: <http://dbpedia.org/> PREFIX skos: <http://www.w3.org/2004/02/skos/core#> SELECT DISTINCT ?var7 { ?var3 foaf:page ?var7. ?var3 rdf:type <http://dbpedia.org/ontology/SoccerPlayer> . ?var3 dbpedia2:position ?var16 . ?var3 <http://dbpedia.org/property/clubs> ?var8 . ?var8 <http://dbpedia.org/ontology/capacity> ?var9 . ?var3 <http://dbpedia.org/ontology/birthPlace> ?var31 . ?var31 ?var33 ?var34. OPTIONAL {?var3 <http://dbpedia.org/ontology/number> ?var35.} Filter (?var33 = <http://dbpedia.org/property/populationEstimate> || ?var33 = <http://dbpedia.org/property/populationCensus> || ?var33 = <http://dbpedia.org/property/statPop> ) Filter (xsd:integer(?var34) > 700 ) . Filter (xsd:integer(?var9) < 30167  ) . Filter (?var16 = 'Goalkeeper'@en || ?var16 = <http://dbpedia.org/resource/Goalkeeper_%28association_football%29> || ?var16 = <http://dbpedia.org/resource/Goalkeeper_%28football%29>) }
+Pretty:
+PREFIX  dc:   <http://purl.org/dc/elements/1.1/>
+PREFIX  :     <http://dbpedia.org/resource/>
+PREFIX  rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX  dbpedia2: <http://dbpedia.org/property/>
+PREFIX  foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX  owl:  <http://www.w3.org/2002/07/owl#>
+PREFIX  xsd:  <http://www.w3.org/2001/XMLSchema#>
+PREFIX  dbpedia: <http://dbpedia.org/>
+PREFIX  rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX  skos: <http://www.w3.org/2004/02/skos/core#>
+
+SELECT DISTINCT  ?var7
+WHERE
+  { ?var3 foaf:page ?var7 .
+    ?var3 rdf:type <http://dbpedia.org/ontology/SoccerPlayer> .
+    ?var3 dbpedia2:position ?var16 .
+    ?var3 dbpedia2:clubs ?var8 .
+    ?var8 <http://dbpedia.org/ontology/capacity> ?var9 .
+    ?var3 <http://dbpedia.org/ontology/birthPlace> ?var31 .
+    ?var31 ?var33 ?var34
+    OPTIONAL
+      { ?var3 <http://dbpedia.org/ontology/number> ?var35 }
+    FILTER ( ( ( ?var33 = dbpedia2:populationEstimate ) || ( ?var33 = dbpedia2:populationCensus ) ) || ( ?var33 = dbpedia2:statPop ) )
+    FILTER ( xsd:integer(?var34) > 700 )
+    FILTER ( xsd:integer(?var9) < 30167 )
+    FILTER ( ( ( ?var16 = "Goalkeeper"@en ) || ( ?var16 = <http://dbpedia.org/resource/Goalkeeper_%28association_football%29> ) ) || ( ?var16 = <http://dbpedia.org/resource/Goalkeeper_%28football%29> ) )
+  }
+  
+Query 11:
+Raw:
+PREFIX owl: <http://www.w3.org/2002/07/owl#> PREFIX xsd: <http://www.w3.org/2001/XMLSchema#> PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> PREFIX foaf: <http://xmlns.com/foaf/0.1/> PREFIX dc: <http://purl.org/dc/elements/1.1/> PREFIX : <http://dbpedia.org/resource/> PREFIX dbpedia2: <http://dbpedia.org/property/> PREFIX dbpedia: <http://dbpedia.org/> PREFIX skos: <http://www.w3.org/2004/02/skos/core#> PREFIX umbelBus: <http://umbel.org/umbel/sc/Business> PREFIX umbelCountry: <http://umbel.org/umbel/sc/IndependentCountry> SELECT distinct ?var3 ?var4 ?var2 WHERE { {<http://dbpedia.org/resource/Madhya_Gujarat_Vij_Company_Limited> dbpedia2:subsid ?var3 OPTIONAL{?var2 <http://dbpedia.org/resource/Madhya_Gujarat_Vij_Company_Limited> dbpedia2:parent} OPTIONAL{<http://dbpedia.org/resource/Madhya_Gujarat_Vij_Company_Limited> dbpedia2:divisions ?var4}} UNION {?var2 <http://dbpedia.org/resource/Madhya_Gujarat_Vij_Company_Limited> dbpedia2:parent OPTIONAL{<http://dbpedia.org/resource/Madhya_Gujarat_Vij_Company_Limited> dbpedia2:subsid ?var3} OPTIONAL{<http://dbpedia.org/resource/Madhya_Gujarat_Vij_Company_Limited> dbpedia2:divisions ?var4}} UNION {<http://dbpedia.org/resource/Madhya_Gujarat_Vij_Company_Limited> dbpedia2:divisions ?var4 OPTIONAL{<http://dbpedia.org/resource/Madhya_Gujarat_Vij_Company_Limited> dbpedia2:subsid ?var3} OPTIONAL{?var2 <http://dbpedia.org/resource/Madhya_Gujarat_Vij_Company_Limited> dbpedia2:parent}} }
+Pretty:
+PREFIX  dc:   <http://purl.org/dc/elements/1.1/>
+PREFIX  :     <http://dbpedia.org/resource/>
+PREFIX  dbpedia2: <http://dbpedia.org/property/>
+PREFIX  foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX  rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX  owl:  <http://www.w3.org/2002/07/owl#>
+PREFIX  xsd:  <http://www.w3.org/2001/XMLSchema#>
+PREFIX  dbpedia: <http://dbpedia.org/>
+PREFIX  rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX  umbelCountry: <http://umbel.org/umbel/sc/IndependentCountry>
+PREFIX  skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX  umbelBus: <http://umbel.org/umbel/sc/Business>
+
+SELECT DISTINCT  ?var3 ?var4 ?var2
+WHERE
+  {   { :Madhya_Gujarat_Vij_Company_Limited dbpedia2:subsid ?var3
+        OPTIONAL
+          { ?var2 :Madhya_Gujarat_Vij_Company_Limited dbpedia2:parent }
+        OPTIONAL
+          { :Madhya_Gujarat_Vij_Company_Limited dbpedia2:divisions ?var4 }
+      }
+    UNION
+      { ?var2 :Madhya_Gujarat_Vij_Company_Limited dbpedia2:parent
+        OPTIONAL
+          { :Madhya_Gujarat_Vij_Company_Limited dbpedia2:subsid ?var3 }
+        OPTIONAL
+          { :Madhya_Gujarat_Vij_Company_Limited dbpedia2:divisions ?var4 }
+      }
+    UNION
+      { :Madhya_Gujarat_Vij_Company_Limited dbpedia2:divisions ?var4
+        OPTIONAL
+          { :Madhya_Gujarat_Vij_Company_Limited dbpedia2:subsid ?var3 }
+        OPTIONAL
+          { ?var2 :Madhya_Gujarat_Vij_Company_Limited dbpedia2:parent }
+      }
+  }
+
+Query 12:
+Raw:
+PREFIX dc: <http://purl.org/dc/elements/1.1/> PREFIX foaf: <http://xmlns.com/foaf/0.1/> PREFIX xsd: <http://www.w3.org/2001/XMLSchema#> PREFIX space: <http://purl.org/net/schemas/space/> PREFIX dbpedia-owl: <http://dbpedia.org/ontology/> PREFIX dbpedia-prop: <http://dbpedia.org/property/> PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> SELECT DISTINCT ?var5 WHERE { ?var2 rdf:type dbpedia-owl:Person . ?var2 dbpedia-owl:nationality ?var4 . ?var4 rdfs:label ?var5 . ?var2 rdfs:label \"Leonid Czernowecki\"@pl . FILTER (lang(?var5) = 'en') }
+
+Pretty:
+PREFIX  dc:   <http://purl.org/dc/elements/1.1/>
+PREFIX  rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX  dbpedia-owl: <http://dbpedia.org/ontology/>
+PREFIX  foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX  dbpedia-prop: <http://dbpedia.org/property/>
+PREFIX  xsd:  <http://www.w3.org/2001/XMLSchema#>
+PREFIX  rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX  space: <http://purl.org/net/schemas/space/>
+
+SELECT DISTINCT  ?var5
+WHERE
+  { ?var2 rdf:type dbpedia-owl:Person .
+    ?var2 dbpedia-owl:nationality ?var4 .
+    ?var4 rdfs:label ?var5 .
+    ?var2 rdfs:label "Leonid Czernowecki"@pl
+    FILTER ( lang(?var5) = "en" )
+  }
+  
+  
+
+Query 13:
+Raw:
+PREFIX owl: <http://www.w3.org/2002/07/owl#> PREFIX xsd: <http://www.w3.org/2001/XMLSchema#> PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> PREFIX foaf: <http://xmlns.com/foaf/0.1/> PREFIX dc: <http://purl.org/dc/elements/1.1/> PREFIX : <http://dbpedia.org/resource/> PREFIX dbpedia2: <http://dbpedia.org/property/> PREFIX dbpedia: <http://dbpedia.org/> PREFIX skos: <http://www.w3.org/2004/02/skos/core#> SELECT * WHERE {{ <http://dbpedia.org/resource/Sun_God_Festival> rdfs:comment ?var0. FILTER (lang(?var0) = 'en')} UNION {<http://dbpedia.org/resource/Sun_God_Festival> foaf:depiction ?var1} UNION {<http://dbpedia.org/resource/Sun_God_Festival> foaf:homepage ?var2}}
+
+Pretty:
+PREFIX  dc:   <http://purl.org/dc/elements/1.1/>
+PREFIX  :     <http://dbpedia.org/resource/>
+PREFIX  rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX  dbpedia2: <http://dbpedia.org/property/>
+PREFIX  foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX  owl:  <http://www.w3.org/2002/07/owl#>
+PREFIX  xsd:  <http://www.w3.org/2001/XMLSchema#>
+PREFIX  dbpedia: <http://dbpedia.org/>
+PREFIX  rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX  skos: <http://www.w3.org/2004/02/skos/core#>
+
+SELECT  *
+WHERE
+  {   { :Sun_God_Festival rdfs:comment ?var0
+        FILTER ( lang(?var0) = "en" )
+      }
+    UNION
+      { :Sun_God_Festival foaf:depiction ?var1 }
+    UNION
+      { :Sun_God_Festival foaf:homepage ?var2 }
+  }
+  
+Query 14:
+Raw:
+PREFIX owl: <http://www.w3.org/2002/07/owl#> PREFIX xsd: <http://www.w3.org/2001/XMLSchema#> PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> PREFIX foaf: <http://xmlns.com/foaf/0.1/> PREFIX dc: <http://purl.org/dc/elements/1.1/> PREFIX : <http://dbpedia.org/resource/> PREFIX dbpedia2: <http://dbpedia.org/property/> PREFIX dbpedia: <http://dbpedia.org/> PREFIX skos: <http://www.w3.org/2004/02/skos/core#> SELECT ?var6 ?var8 ?var10 ?var4 WHERE { ?var4 skos:subject <http://dbpedia.org/resource/Category:2003_albums> . ?var4 foaf:name ?var6 . OPTIONAL { ?var4 rdfs:comment ?var8 . FILTER (LANG(?var8) = 'en') . } OPTIONAL { ?var4 rdfs:comment ?var10 . FILTER (LANG(?var10) = 'de') . } }
+
+Pretty:
+PREFIX  dc:   <http://purl.org/dc/elements/1.1/>
+PREFIX  :     <http://dbpedia.org/resource/>
+PREFIX  rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX  dbpedia2: <http://dbpedia.org/property/>
+PREFIX  foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX  owl:  <http://www.w3.org/2002/07/owl#>
+PREFIX  xsd:  <http://www.w3.org/2001/XMLSchema#>
+PREFIX  dbpedia: <http://dbpedia.org/>
+PREFIX  rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX  skos: <http://www.w3.org/2004/02/skos/core#>
+
+SELECT  ?var6 ?var8 ?var10 ?var4
+WHERE
+  { ?var4 skos:subject <http://dbpedia.org/resource/Category:2003_albums> .
+    ?var4 foaf:name ?var6
+    OPTIONAL
+      { ?var4 rdfs:comment ?var8
+        FILTER ( lang(?var8) = "en" )
+      }
+    OPTIONAL
+      { ?var4 rdfs:comment ?var10
+        FILTER ( lang(?var10) = "de" )
+      }
+  }
+  
+  
+Query 15:
+Raw:
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> PREFIX dbo: <http://dbpedia.org/ontology/> PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> SELECT DISTINCT ?var2 ?var3 WHERE { ?var2 rdf:type <http://dbpedia.org/ontology/Fish> ; rdfs:label ?var3 . FILTER regex(str(?var3), 'pes', 'i') }
+
+Pretty:
+PREFIX  rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX  dbo:  <http://dbpedia.org/ontology/>
+PREFIX  rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+SELECT DISTINCT  ?var2 ?var3
+WHERE
+  { ?var2 rdf:type dbo:Fish .
+    ?var2 rdfs:label ?var3
+    FILTER regex(str(?var3), "pes", "i")
+  }
+
+Query 17:
+Raw:
+PREFIX dc: <http://purl.org/dc/elements/1.1/> PREFIX dct: <http://purl.org/dc/terms/> PREFIX map: <file:/home/moustaki/work/motools/musicbrainz/d2r-server-0.4/mbz_mapping_raw.n3#> PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> PREFIX owl: <http://www.w3.org/2002/07/owl#> PREFIX event: <http://purl.org/NET/c4dm/event.owl#> PREFIX rel: <http://purl.org/vocab/relationship/> PREFIX lingvoj: <http://www.lingvoj.org/ontology#> PREFIX foaf: <http://xmlns.com/foaf/0.1/> PREFIX dbpprop: <http://dbpedia.org/property/> PREFIX dbowl: <http://dbpedia.org/ontology/> PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> PREFIX tags: <http://www.holygoat.co.uk/owl/redwood/0.1/tags/> PREFIX db: <http://dbtune.org/musicbrainz/resource/> PREFIX geo: <http://www.geonames.org/ontology#> PREFIX bio: <http://purl.org/vocab/bio/0.1/> PREFIX mo: <http://purl.org/ontology/mo/> PREFIX vocab: <http://dbtune.org/musicbrainz/resource/vocab/> PREFIX xsd: <http://www.w3.org/2001/XMLSchema#> PREFIX mbz: <http://purl.org/ontology/mbz#> SELECT DISTINCT ?var2 ?var3 { {?var2 <http://www.w3.org/2004/02/skos/core#subject> <http://dbpedia.org/resource/Category:Frazioni_of_the_Province_of_Pordenone>.} UNION {?var2 <http://www.w3.org/2004/02/skos/core#subject> <http://dbpedia.org/resource/Category:Prefectures_in_France>.} UNION {?var2 <http://www.w3.org/2004/02/skos/core#subject> <http://dbpedia.org/resource/Category:German_state_capitals>.} ?var2 <http://www.w3.org/2000/01/rdf-schema#label> ?var3. FILTER (lang(?var3)='fr') }
+
+Pretty:
+PREFIX  dc:   <http://purl.org/dc/elements/1.1/>
+PREFIX  tags: <http://www.holygoat.co.uk/owl/redwood/0.1/tags/>
+PREFIX  db:   <http://dbtune.org/musicbrainz/resource/>
+PREFIX  geo:  <http://www.geonames.org/ontology#>
+PREFIX  mo:   <http://purl.org/ontology/mo/>
+PREFIX  foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX  dbowl: <http://dbpedia.org/ontology/>
+PREFIX  lingvoj: <http://www.lingvoj.org/ontology#>
+PREFIX  mbz:  <http://purl.org/ontology/mbz#>
+PREFIX  rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX  bio:  <http://purl.org/vocab/bio/0.1/>
+PREFIX  event: <http://purl.org/NET/c4dm/event.owl#>
+PREFIX  dct:  <http://purl.org/dc/terms/>
+PREFIX  owl:  <http://www.w3.org/2002/07/owl#>
+PREFIX  map:  <file:///home/moustaki/work/motools/musicbrainz/d2r-server-0.4/mbz_mapping_raw.n3#>
+PREFIX  xsd:  <http://www.w3.org/2001/XMLSchema#>
+PREFIX  rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX  dbpprop: <http://dbpedia.org/property/>
+PREFIX  rel:  <http://purl.org/vocab/relationship/>
+PREFIX  vocab: <http://dbtune.org/musicbrainz/resource/vocab/>
+
+SELECT DISTINCT  ?var2 ?var3
+WHERE
+  {   { ?var2 <http://www.w3.org/2004/02/skos/core#subject> <http://dbpedia.org/resource/Category:Frazioni_of_the_Province_of_Pordenone> }
+    UNION
+      { ?var2 <http://www.w3.org/2004/02/skos/core#subject> <http://dbpedia.org/resource/Category:Prefectures_in_France> }
+    UNION
+      { ?var2 <http://www.w3.org/2004/02/skos/core#subject> <http://dbpedia.org/resource/Category:German_state_capitals> }
+    ?var2 rdfs:label ?var3
+    FILTER ( lang(?var3) = "fr" )
+  }
+  
+Query 18:
+Raw:
+PREFIX owl: <http://www.w3.org/2002/07/owl#> PREFIX xsd: <http://www.w3.org/2001/XMLSchema#> PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> PREFIX foaf: <http://xmlns.com/foaf/0.1/> PREFIX dc: <http://purl.org/dc/elements/1.1/> PREFIX : <http://dbpedia.org/resource/> PREFIX dbpedia2: <http://dbpedia.org/property/> PREFIX dbpedia: <http://dbpedia.org/> PREFIX skos: <http://www.w3.org/2004/02/skos/core#> SELECT ?var3 ?var4 ?var5 WHERE { { <http://dbpedia.org/resource/Pat_Kerwick> ?var3 ?var4. FILTER ( (STR(?var3) = 'http://www.w3.org/2000/01/rdf-schema#label' && lang(?var4) = 'en') || (STR(?var3) = 'http://dbpedia.org/ontology/abstract' && lang(?var4) = 'en') || (STR(?var3) = 'http://www.w3.org/2000/01/rdf-schema#comment' && lang(?var4) = 'en') || (STR(?var3) != 'http://dbpedia.org/ontology/abstract' && STR(?var3) != 'http://www.w3.org/2000/01/rdf-schema#comment' && STR(?var3) != 'http://www.w3.org/2000/01/rdf-schema#label') ) } UNION { ?var5 ?var3 <http://dbpedia.org/resource/Pat_Kerwick> FILTER ( STR(?var3) = 'http://dbpedia.org/ontology/owner' || STR(?var3) = 'http://dbpedia.org/property/redirect' ) } }
+
+Pretty:
+PREFIX  dc:   <http://purl.org/dc/elements/1.1/>
+PREFIX  :     <http://dbpedia.org/resource/>
+PREFIX  rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX  dbpedia2: <http://dbpedia.org/property/>
+PREFIX  foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX  owl:  <http://www.w3.org/2002/07/owl#>
+PREFIX  xsd:  <http://www.w3.org/2001/XMLSchema#>
+PREFIX  dbpedia: <http://dbpedia.org/>
+PREFIX  rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX  skos: <http://www.w3.org/2004/02/skos/core#>
+
+SELECT  ?var3 ?var4 ?var5
+WHERE
+  {   { :Pat_Kerwick ?var3 ?var4
+        FILTER ( ( ( ( ( str(?var3) = "http://www.w3.org/2000/01/rdf-schema#label" ) && ( lang(?var4) = "en" ) ) || ( ( str(?var3) = "http://dbpedia.org/ontology/abstract" ) && ( lang(?var4) = "en" ) ) ) || ( ( str(?var3) = "http://www.w3.org/2000/01/rdf-schema#comment" ) && ( lang(?var4) = "en" ) ) ) || ( ( ( str(?var3) != "http://dbpedia.org/ontology/abstract" ) && ( str(?var3) != "http://www.w3.org/2000/01/rdf-schema#comment" ) ) && ( str(?var3) != "http://www.w3.org/2000/01/rdf-schema#label" ) ) )
+      }
+    UNION
+      { ?var5 ?var3 :Pat_Kerwick
+        FILTER ( ( str(?var3) = "http://dbpedia.org/ontology/owner" ) || ( str(?var3) = "http://dbpedia.org/property/redirect" ) )
+      }
+  }
+
+
+
+Query 19:
+Raw:
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> SELECT ?var1 WHERE { { ?var1 <http://www.w3.org/2000/01/rdf-schema#label> \"Tipperary\"@en } UNION { ?var1 <http://www.w3.org/2000/01/rdf-schema#label> \"Tipperary\"@en }. FILTER(regex(str(?var1),'http://dbpedia.org/resource/') || regex(str(?var1),'http://dbpedia.org/ontology/') || regex(str(?var1),'http://www.w3.org/2002/07/owl') || regex(str(?var1),'http://www.w3.org/2001/XMLSchema') || regex(str(?var1),'http://www.w3.org/2000/01/rdf-schema') || regex(str(?var1),'http://www.w3.org/1999/02/22-rdf-syntax-ns')) }
+
+Pretty:
+PREFIX  rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT  ?var1
+WHERE
+  {   { ?var1 rdfs:label "Tipperary"@en }
+    UNION
+      { ?var1 rdfs:label "Tipperary"@en }
+    FILTER ( ( ( ( ( regex(str(?var1), "http://dbpedia.org/resource/") || regex(str(?var1), "http://dbpedia.org/ontology/") ) || regex(str(?var1), "http://www.w3.org/2002/07/owl") ) || regex(str(?var1), "http://www.w3.org/2001/XMLSchema") ) || regex(str(?var1), "http://www.w3.org/2000/01/rdf-schema") ) || regex(str(?var1), "http://www.w3.org/1999/02/22-rdf-syntax-ns") )
+  }
+  
+  
+Query 22:
+Raw:
+SELECT ?var2 WHERE { ?var3 <http://xmlns.com/foaf/0.1/homepage> ?var2 . ?var3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.opengis.net/gml/_Feature> . }
+
+Pretty:
+SELECT  ?var2
+WHERE
+  { ?var3 <http://xmlns.com/foaf/0.1/homepage> ?var2 .
+    ?var3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.opengis.net/gml/_Feature>
+  }
+  
+
+Query 23:
+Raw:
+PREFIX dc: <http://purl.org/dc/elements/1.1/> PREFIX foaf: <http://xmlns.com/foaf/0.1/> PREFIX xsd: <http://www.w3.org/2001/XMLSchema#> PREFIX space: <http://purl.org/net/schemas/space/> PREFIX dbpedia-owl: <http://dbpedia.org/ontology/> PREFIX dbpedia-prop: <http://dbpedia.org/property/> PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> SELECT ?var4 WHERE { ?var2 rdf:type dbpedia-owl:Person . ?var2 rdfs:label \"Pat Kerwick\"@en . ?var2 foaf:page ?var4 . }
+
+Pretty:
+PREFIX  dc:   <http://purl.org/dc/elements/1.1/>
+PREFIX  rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX  dbpedia-owl: <http://dbpedia.org/ontology/>
+PREFIX  foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX  dbpedia-prop: <http://dbpedia.org/property/>
+PREFIX  xsd:  <http://www.w3.org/2001/XMLSchema#>
+PREFIX  rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX  space: <http://purl.org/net/schemas/space/>
+
+SELECT  ?var4
+WHERE
+  { ?var2 rdf:type dbpedia-owl:Person .
+    ?var2 rdfs:label "Pat Kerwick"@en .
+    ?var2 foaf:page ?var4
+  }
+  
+Query 24:
+Raw:
+SELECT * where { ?var1 a <http://dbpedia.org/ontology/Organisation> . ?var2 <http://dbpedia.org/ontology/foundationPlace> <http://dbpedia.org/resource/Illinois> . ?var4 <http://dbpedia.org/ontology/developer> ?var2 . ?var4 a <http://www.w3.org/2002/07/owl#Thing> . }
+Pretty:
+SELECT  *
+WHERE
+  { ?var1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Organisation> .
+    ?var2 <http://dbpedia.org/ontology/foundationPlace> <http://dbpedia.org/resource/Illinois> .
+    ?var4 <http://dbpedia.org/ontology/developer> ?var2 .
+    ?var4 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Thing>
+  }
+  
+Query 25:
+Raw:
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> PREFIX dbpprop:<http://dbpedia.org/property/> SELECT ?var0 ?var1 ?var2 ?var3 where { ?var6 rdf:type <http://www.w3.org/2002/07/owl#Thing>. ?var6 dbpprop:name ?var0. ?var6 dbpprop:pages ?var1. ?var6 dbpprop:isbn ?var2. ?var6 dbpprop:author ?var3.}
+
+Pretty:
+PREFIX  rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX  dbpprop: <http://dbpedia.org/property/>
+
+SELECT  ?var0 ?var1 ?var2 ?var3
+WHERE
+  { ?var6 rdf:type <http://www.w3.org/2002/07/owl#Thing> .
+    ?var6 dbpprop:name ?var0 .
+    ?var6 dbpprop:pages ?var1 .
+    ?var6 dbpprop:isbn ?var2 .
+    ?var6 dbpprop:author ?var3
+  }

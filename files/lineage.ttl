@@ -1,0 +1,39 @@
+@prefix : <http://ex.org/> .
+
+:BayTours :basedIn :SanFrancisco;
+			:phone "415-1200";
+			:offer :SanFranciscoTour1;
+			:offer :SnataCruzTour1;
+			:offer :SnataCruzTour2;
+			:offer :MontereyTour1.
+
+:HarborCruz :basedIn :SnataCruz;
+			:phone "831-300";
+			:offer :MontereyTour2;
+			:offer :CarmelTour1.
+			
+
+:SanFranciscoTour1 :tourType :CableCar;
+					:price "$50";
+					:destination :SanFrancisco.
+					
+:SnataCruzTour1 :tourType :Bus;
+					:price "$100";
+					:destination :SnataCruz.
+
+:SnataCruzTour2 :tourType :Boat;
+				:price "$250";
+				:destination :SnataCruz.
+
+:MontereyTour1  :tourType :Boat;
+				:price "$400";
+				:destination :Monterey.
+
+:MontereyTour2  :tourType :Boat;
+				:price "$200";
+				:destination :Monterey.
+
+:CarmelTour1  :tourType :Train;
+				:price "$90";
+				:destination :Carmel.
+

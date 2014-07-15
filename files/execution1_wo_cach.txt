@@ -1,0 +1,149 @@
+Repetition: 1
+------------------------------
+Query template:		1
+------------------------------
+Query execution time:	111
+# of results:		4
+Prov generation time:	24
+Avg. Prov gen. time:	6.0
+------------------------------
+Query template:		3
+------------------------------
+Query execution time:	185
+# of results:		1
+Prov generation time:	192
+Avg. Prov gen. time:	192.0
+------------------------------
+Query template:		4
+------------------------------
+Query execution time:	105222
+# of results:		2
+Prov generation time:	23
+Avg. Prov gen. time:	11.5
+------------------------------
+Query template:		5
+------------------------------
+Query execution time:	86
+# of results:		13
+Prov generation time:	148
+Avg. Prov gen. time:	11.384615384615385
+------------------------------
+Query template:		6
+------------------------------
+Query execution time:	2951
+# of results:		3238
+Prov generation time:	2901
+Avg. Prov gen. time:	0.8959234095120445
+------------------------------
+Query template:		7
+------------------------------
+Query execution time:	26
+# of results:		21
+Prov generation time:	134
+Avg. Prov gen. time:	6.380952380952381
+------------------------------
+Query template:		8
+------------------------------
+Query execution time:	48984
+# of results:		60447
+Prov generation time:	1044
+Avg. Prov gen. time:	0.017271328601915728
+------------------------------
+Query template:		9
+------------------------------
+Query execution time:	3163
+# of results:		4
+Prov generation time:	262
+Avg. Prov gen. time:	65.5
+------------------------------
+Query template:		10
+------------------------------
+Query execution time:	77883
+# of results:		2933
+Prov generation time:	118289
+Avg. Prov gen. time:	40.33037845209683
+------------------------------
+Query template:		11
+------------------------------
+Query execution time:	6
+# of results:		1
+Prov generation time:	1
+Avg. Prov gen. time:	1.0
+------------------------------
+Query template:		12
+------------------------------
+Query execution time:	14
+# of results:		1
+Prov generation time:	24
+Avg. Prov gen. time:	24.0
+------------------------------
+Query template:		13
+------------------------------
+Query execution time:	3
+# of results:		2
+Prov generation time:	2
+Avg. Prov gen. time:	1.0
+------------------------------
+Query template:		14
+------------------------------
+Query execution time:	6167
+# of results:		4137
+Prov generation time:	8439
+Avg. Prov gen. time:	2.0398839738941263
+------------------------------
+Query template:		15
+------------------------------
+Query execution time:	9972
+# of results:		38
+Prov generation time:	22
+Avg. Prov gen. time:	0.5789473684210527
+------------------------------
+Query template:		17
+------------------------------
+Query execution time:	116
+# of results:		82
+Prov generation time:	4
+Avg. Prov gen. time:	0.04878048780487805
+------------------------------
+Query template:		18
+------------------------------
+Query execution time:	2
+# of results:		34
+Prov generation time:	3
+Avg. Prov gen. time:	0.08823529411764706
+------------------------------
+Query template:		19
+------------------------------
+Query execution time:	0
+# of results:		2
+Prov generation time:	0
+Avg. Prov gen. time:	0.0
+------------------------------
+Query template:		22
+------------------------------
+Query execution time:	29488
+# of results:		82298
+Prov generation time:	345509
+Avg. Prov gen. time:	4.198267272594717
+------------------------------
+Query template:		23
+------------------------------
+Query execution time:	12
+# of results:		1
+Prov generation time:	11
+Avg. Prov gen. time:	11.0
+------------------------------
+Query template:		24
+------------------------------
+Query execution time:	89525
+# of results:		134968
+Prov generation time:	10423
+Avg. Prov gen. time:	0.07722571276154348
+------------------------------
+Query template:		25
+------------------------------
+Query execution time:	32495
+# of results:		47696
+Prov generation time:	719916
+Avg. Prov gen. time:	15.093844347534384
+Experiments finished
